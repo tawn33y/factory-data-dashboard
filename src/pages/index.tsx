@@ -31,7 +31,6 @@ const ChartsCanvas: FC<ChartsCanvasProps> = ({ data }) => {
       <LineChart
         width="56rem"
         height="24rem"
-        title="Combined"
         data={data.headers.map((header, idx) => ({
           name: header,
           ...Object.keys(data.rows).map((stat) => ({
