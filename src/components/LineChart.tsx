@@ -11,6 +11,18 @@ interface LineChartProps {
 
 export const LineChart: FC<LineChartProps> = ({ title, data, width = '24rem', height = '24rem' }) => {
   const { name, ...dataPoints } = data[0];
+  const colors = [
+    '#8884d8',
+    "#FF0000",
+    "#0000FF",
+    "#00FF00",
+    "#800080",
+    "#00FFFF",
+    "#FFA500",
+    "#FF00FF",
+    "#008080",
+    "#A52A2A"
+  ];
 
   return (
     <div
@@ -41,12 +53,12 @@ export const LineChart: FC<LineChartProps> = ({ title, data, width = '24rem', he
             <YAxis />
             <Tooltip />
             <Legend />
-            {Object.keys(dataPoints).map((dataPoint) => (
+            {Object.keys(dataPoints).map((dataPoint, idx) => (
               <Line
                 key={dataPoint}
                 type="monotone"
                 dataKey={dataPoint}
-                stroke="#8884d8"
+                stroke={colors[idx] ?? colors[0]}
                 activeDot={{ r: 8 }}
               />
             ))}
