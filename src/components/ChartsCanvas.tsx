@@ -53,6 +53,12 @@ export const ChartsCanvas: FC<ChartsCanvasProps> = ({ data }) => {
         onFilteredMonthIds={setFilteredMonthIds}
         onFilteredChartId={setFilteredChartId}
         onShowComparison={setShowComparison}
+        onReset={() => {
+          setFilteredStatIds(statsOptions.map((stat) => stat.code));
+          setFilteredMonthIds(monthsOptions.map((month) => month.code));
+          setFilteredChartId(chartOptions[0].code);
+          setShowComparison(false);
+        }}
       />
     
       {filteredMonthIds.length > 0 && (
@@ -82,16 +88,23 @@ export const ChartsCanvas: FC<ChartsCanvasProps> = ({ data }) => {
             </>
           ))}
           {showComparison && (
-            <LineChart
-              width="56rem"
-              height="24rem"
-              data={monthsOptions.map(({ label: month }, idx) => ({
-                name: month,
-                ...filteredStats.map(({ label: stat }) => ({
-                  [stat]: data.rows[stat][idx],
-                })).reduce((acc, curr) => ({ ...acc, ...curr }), {}),
-              })).filter((month) => filteredMonths.map(({ label }) => label).includes(month.name))}
-            />
+            <>
+              {filteredChart.code === 'line' && (
+                <LineChart
+                  width="56rem"
+                  height="24rem"
+                  data={monthsOptions.map(({ label: month }, idx) => ({
+                    name: month,
+                    ...filteredStats.map(({ label: stat }) => ({
+                      [stat]: data.rows[stat][idx],
+                    })).reduce((acc, curr) => ({ ...acc, ...curr }), {}),
+                  })).filter((month) => filteredMonths.map(({ label }) => label).includes(month.name))}
+                />
+              )}
+              {filteredChart.code === 'pie' && (
+                <p className="my-8">Sorry, cannot show pie charts for comparisons.</p>
+              )}
+            </>
           )}
         </div>
       )}
