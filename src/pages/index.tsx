@@ -5,8 +5,9 @@ import { LineChart } from "@/components/LineChart";
 
 // TODO:
 // add different colors
+// add pie chart, bar chart
 // add dropdown/toggle
-// add pie chart for combined
+// add title
 
 interface ChartsCanvasProps {
   data: FactoryData;
@@ -14,7 +15,6 @@ interface ChartsCanvasProps {
 
 const ChartsCanvas: FC<ChartsCanvasProps> = ({ data }) => {
   console.log(Object.keys(data.rows))
-  // const charts = 
   return (
     <div className="bg-gray-100 w-dvh h-dvh overflow-auto py-8 px-24 flex flex-wrap gap-8 justify-center items-start">
       {Object.keys(data.rows).map((stat) => (
@@ -23,8 +23,7 @@ const ChartsCanvas: FC<ChartsCanvasProps> = ({ data }) => {
           title={stat}
           data={data.headers.map((header, idx) => ({
             name: header,
-            // [stat.replaceAll(/[^a-zA-Z0-9]/g, ' ')]: data.rows[stat][idx],
-            [stat]: data.rows[stat][idx],
+            value: data.rows[stat][idx],
           }))}
         />
       ))}
@@ -34,7 +33,6 @@ const ChartsCanvas: FC<ChartsCanvasProps> = ({ data }) => {
         data={data.headers.map((header, idx) => ({
           name: header,
           ...Object.keys(data.rows).map((stat) => ({
-            // [stat.replaceAll(/[^a-zA-Z0-9]/g, ' ')]: data.rows[stat][idx],
             [stat]: data.rows[stat][idx],
           })).reduce((acc, curr) => ({ ...acc, ...curr }), {}),
         }))}
