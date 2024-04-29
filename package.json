@@ -9,13 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@nivo/line": "^0.85.1",
     "@vercel/analytics": "^1.2.2",
     "axios": "^1.6.8",
     "google-auth-library": "^9.9.0",
     "google-spreadsheet": "^4.1.1",
     "next": "14.2.3",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "recharts": "^2.12.6"
   },
   "devDependencies": {
     "@types/node": "^20",
