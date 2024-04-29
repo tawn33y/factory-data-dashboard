@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@nivo/line": "^0.85.1",
     "@vercel/analytics": "^1.2.2",
     "axios": "^1.6.8",
     "google-auth-library": "^9.9.0",
