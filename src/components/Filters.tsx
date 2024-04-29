@@ -19,6 +19,7 @@ interface FiltersProps {
   onFilteredMonthIds: (id: string[]) => void;
   onFilteredChartId: (id: string) => void;
   onShowComparison: (value: boolean) => void;
+  onReset: () => void;
 }
 
 export const Filters: FC<FiltersProps> = ({ ...props }) => (
@@ -56,6 +57,12 @@ export const Filters: FC<FiltersProps> = ({ ...props }) => (
       onClick={(e) => props.onShowComparison(!props.showComparison)}
     >
       {props.showComparison ? 'Hide Comparison' : 'Show Comparison'}
+    </button>
+    <button
+      className="bg-blue-500 text-white px-4 py-2 rounded-md"
+      onClick={(e) => props.onReset()}
+    >
+      Reset
     </button>
   </div>
 );

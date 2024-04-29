@@ -53,6 +53,12 @@ export const ChartsCanvas: FC<ChartsCanvasProps> = ({ data }) => {
         onFilteredMonthIds={setFilteredMonthIds}
         onFilteredChartId={setFilteredChartId}
         onShowComparison={setShowComparison}
+        onReset={() => {
+          setFilteredStatIds(statsOptions.map((stat) => stat.code));
+          setFilteredMonthIds(monthsOptions.map((month) => month.code));
+          setFilteredChartId(chartOptions[0].code);
+          setShowComparison(false);
+        }}
       />
     
       {filteredMonthIds.length > 0 && (
