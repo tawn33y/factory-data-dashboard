@@ -12,7 +12,6 @@ interface ChartsCanvasProps {
 }
 
 const ChartsCanvas: FC<ChartsCanvasProps> = ({ data }) => {
-  console.log(Object.keys(data.rows))
   return (
     <div className="flex flex-wrap gap-8 justify-center items-start">
       {Object.keys(data.rows).map((stat) => (
@@ -58,7 +57,7 @@ export default function Home() {
   if (!data) return (<p>No data</p>);
 
   return (
-    <div className="bg-gray-100 w-dvh h-dvh overflow-auto py-8 px-4 lg:px-24">
+    <div className="py-8 px-4 lg:px-24">
       <h2 className="text-2xl font-bold mb-8">Factory Environmental Test Data Analysis</h2>
       <ChartsCanvas data={data} />
     </div>
