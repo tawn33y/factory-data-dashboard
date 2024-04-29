@@ -6,7 +6,6 @@ import { LineChart } from "@/components/LineChart";
 // TODO:
 // add pie chart, bar chart
 // add dropdown/toggle
-// add title
 
 interface ChartsCanvasProps {
   data: FactoryData;
@@ -15,7 +14,7 @@ interface ChartsCanvasProps {
 const ChartsCanvas: FC<ChartsCanvasProps> = ({ data }) => {
   console.log(Object.keys(data.rows))
   return (
-    <div className="bg-gray-100 w-dvh h-dvh overflow-auto py-8 px-24 flex flex-wrap gap-8 justify-center items-start">
+    <div className="flex flex-wrap gap-8 justify-center items-start">
       {Object.keys(data.rows).map((stat) => (
         <LineChart
           key={stat}
@@ -59,6 +58,9 @@ export default function Home() {
   if (!data) return (<p>No data</p>);
 
   return (
-    <ChartsCanvas data={data} />
+    <div className="bg-gray-100 w-dvh h-dvh overflow-auto py-8 px-4 lg:px-24">
+      <h2 className="text-2xl font-bold mb-8">Factory Environmental Test Data Analysis</h2>
+      <ChartsCanvas data={data} />
+    </div>
   );
 }
