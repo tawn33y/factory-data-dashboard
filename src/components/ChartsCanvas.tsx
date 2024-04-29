@@ -41,30 +41,32 @@ export const ChartsCanvas: FC<ChartsCanvasProps> = ({ data }) => {
         onShowComparison={setShowComparison}
       />
     
-      <div className="flex flex-wrap gap-8 justify-center items-start">
-        {!showComparison && filteredStats.map(({ label: stat }) => (
-          <LineChart
-            key={stat}
-            title={stat}
-            data={filteredMonths.map(({ label: month }, idx) => ({
-              name: month,
-              value: data.rows[stat][idx],
-            }))}
-          />
-        ))}
-        {showComparison && (
-          <LineChart
-            width="56rem"
-            height="24rem"
-            data={filteredMonths.map(({ label: month }, idx) => ({
-              name: month,
-              ...filteredStats.map(({ label: stat }) => ({
-                [stat]: data.rows[stat][idx],
-              })).reduce((acc, curr) => ({ ...acc, ...curr }), {}),
-            }))}
-          />
-        )}
-      </div>
+      {filteredMonthIds.length > 0 && (
+        <div className="flex flex-wrap gap-8 justify-center items-start">
+          {!showComparison && filteredStats.map(({ label: stat }) => (
+            <LineChart
+              key={stat}
+              title={stat}
+              data={filteredMonths.map(({ label: month }, idx) => ({
+                name: month,
+                value: data.rows[stat][idx],
+              }))}
+            />
+          ))}
+          {showComparison && (
+            <LineChart
+              width="56rem"
+              height="24rem"
+              data={filteredMonths.map(({ label: month }, idx) => ({
+                name: month,
+                ...filteredStats.map(({ label: stat }) => ({
+                  [stat]: data.rows[stat][idx],
+                })).reduce((acc, curr) => ({ ...acc, ...curr }), {}),
+              }))}
+            />
+          )}
+        </div>
+      )}
     </>
   );
 };
