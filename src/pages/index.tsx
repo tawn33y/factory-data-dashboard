@@ -23,7 +23,7 @@ export default function Home() {
 
   return (
     <div className="py-8 px-4 lg:px-24">
-      <h2 className="text-2xl font-bold mb-4">Factory Environmental Test Data Analysis</h2>
+      <h2 className="text-2xl font-bold mb-4">Factory Environmental Test Data Dashboard</h2>
       <ChartsCanvas data={data} />
     </div>
   );
