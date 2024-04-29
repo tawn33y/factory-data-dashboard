@@ -1,6 +1,6 @@
-# vara-fs-intern-takehome
+# vara-factory-data-dashboard
 
-[https://vara-fs-intern-takehome.vercel.app/](https://vara-fs-intern-takehome.vercel.app/)
+[https://vara-factory-data-dashboard.vercel.app/](https://vara-factory-data-dashboard.vercel.app/)
 
 
 ## How to run
