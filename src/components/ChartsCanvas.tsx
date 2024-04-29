@@ -47,22 +47,22 @@ export const ChartsCanvas: FC<ChartsCanvasProps> = ({ data }) => {
             <LineChart
               key={stat}
               title={stat}
-              data={filteredMonths.map(({ label: month }, idx) => ({
+              data={monthsOptions.map(({ label: month }, idx) => ({
                 name: month,
                 value: data.rows[stat][idx],
-              }))}
+              })).filter((month) => filteredMonths.map(({ label }) => label).includes(month.name))}
             />
           ))}
           {showComparison && (
             <LineChart
               width="56rem"
               height="24rem"
-              data={filteredMonths.map(({ label: month }, idx) => ({
+              data={monthsOptions.map(({ label: month }, idx) => ({
                 name: month,
                 ...filteredStats.map(({ label: stat }) => ({
                   [stat]: data.rows[stat][idx],
                 })).reduce((acc, curr) => ({ ...acc, ...curr }), {}),
-              }))}
+              })).filter((month) => filteredMonths.map(({ label }) => label).includes(month.name))}
             />
           )}
         </div>
