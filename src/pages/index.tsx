@@ -4,7 +4,6 @@ import { FactoryData } from "../api/getFactoryData";
 import { LineChart } from "@/components/LineChart";
 
 // TODO:
-// add different colors
 // add pie chart, bar chart
 // add dropdown/toggle
 // add title
