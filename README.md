@@ -1,6 +1,6 @@
 # vara-fs-intern-takehome
 
-[https://vara-fs-intern-coding-assignment.vercel.app/](https://vara-fs-intern-coding-assignment.vercel.app/)
+[https://vara-fs-intern-takehome.vercel.app/](https://vara-fs-intern-takehome.vercel.app/)
 
 
 ## How to run
