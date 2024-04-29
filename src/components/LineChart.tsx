@@ -7,10 +7,9 @@ interface LineChartProps {
   width?: string;
   height?: string;
   data: Record<string, string | number>[];
-  className?: string;
 }
 
-export const LineChart: FC<LineChartProps> = ({ title, width = '24rem', height = '24rem', data, className }) => {
+export const LineChart: FC<LineChartProps> = ({ title, width = '24rem', height = '24rem', data }) => {
   const { name, ...dataPoints } = data[0];
   const colors = [
     '#8884d8',

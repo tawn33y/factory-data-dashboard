@@ -50,13 +50,10 @@ const renderActiveShape = (props: any) => {
 
 interface PieChartProps {
   title?: string;
-  width?: string;
-  height?: string;
   data: Record<string, string | number>[];
-  className?: string;
 }
 
-export const PieChart: FC<PieChartProps> = ({ title, width = '24rem', height = '24rem', data, className }) => {
+export const PieChart: FC<PieChartProps> = ({ title, data }) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const onPieEnter = (_: any, index: number) => setActiveIndex(index);
