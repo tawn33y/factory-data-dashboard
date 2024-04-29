@@ -49,7 +49,7 @@ export const Filters: FC<FiltersProps> = ({ ...props }) => (
       options={props.chartOptions}
       optionLabel="label"
       placeholder="Chart"
-      className="w-full md:w-14rem"
+      className="w-48 px-4 py-2 rounded-md shadow-md"
     />
     <button
       className="bg-blue-500 text-white px-4 py-2 rounded-md"
