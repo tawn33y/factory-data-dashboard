@@ -1,6 +1,6 @@
 # factory-data-dashboard
 
-This React app loads live data from a Google sheet and creates a dashboard with highly interactive and customizable charts, allowing users to visualize the data.
+A React app that loads live data from a Google sheet and creates a dashboard with highly interactive and customizable charts, allowing users to visualize the data.
 
 ## Live Link
 
